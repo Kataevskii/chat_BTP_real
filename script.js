@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     resultDiv.appendChild(statusDiv);
     resultDiv.appendChild(explanationDiv);
 
+    let isAnalyzing = false;
+
     imageUpload.addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
@@ -29,16 +31,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     analyzeButton.addEventListener('click', function() {
+        if (isAnalyzing) {
+            return;
+        }
+
         statusDiv.textContent = '';
         explanationDiv.textContent = '';
         statusDiv.classList.remove('dangerous', 'not-dangerous', 'no-fissure');
 
         if (!imageUpload.files || imageUpload.files.length === 0) {
-            resultDiv.textContent = "Please upload an image first.";
+            resultDiv.textContent = "Veuillez d'abord télécharger une image.";
             return;
         }
 
         loadingIndicator.style.display = 'block';
+        isAnalyzing = true;
+        analyzeButton.classList.add('analyzing');
 
         const file = imageUpload.files[0];
         const reader = new FileReader();
@@ -48,36 +56,40 @@ document.addEventListener('DOMContentLoaded', function() {
             analyzeImageWithGemini(base64data)
                 .then(result => {
                     loadingIndicator.style.display = 'none';
+                    isAnalyzing = false;
+                    analyzeButton.classList.remove('analyzing');
 
                     statusDiv.textContent = result.status;
                     explanationDiv.textContent = result.explanation;
 
-                    if (result.status === "Dangerous") {
+                    if (result.status === "Dangereux") {
                         statusDiv.classList.add('dangerous');
-                    } else if (result.status === "Not Dangerous") {
+                    } else if (result.status === "Pas dangereux") {
                         statusDiv.classList.add('not-dangerous');
-                    } else if (result.status === "No Fissure") {
+                    } else if (result.status === "Pas de Fissure") {
                         statusDiv.classList.add('no-fissure');
                     }
                 })
                 .catch(error => {
                     loadingIndicator.style.display = 'none';
-                    resultDiv.textContent = "Error analyzing image: " + error.message;
+                    isAnalyzing = false;
+                    analyzeButton.classList.remove('analyzing');
+                    resultDiv.textContent = "Erreur lors de l'analyse de l'image : " + error.message;
                 });
         };
         reader.readAsDataURL(file);
     });
 
     async function analyzeImageWithGemini(base64Image) {
-        const apiKey = 'AIzaSyCDADOebCIT4B0Ldo2vbN27wn2saa68MmE';
+        const apiKey = 'AIzaSyCDADOebCIT4B0Ldo2vbN27wn2saa68MmE'; // Replace with your actual API key
         const model = 'gemini-2.0-flash-lite';
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
-        const prompt = `Analyze this image. 
-        1.  Determine if there is a fissure.
-        2.  If a fissure is present, assess if it appears dangerous or not dangerous.
-        3.  Provide a short answer stating ONLY one of the following: "Dangerous", "Not Dangerous", or "No Fissure".
-        4.  Follow the short answer with a detailed explanation.`;
+        const prompt = `Analysez cette image.
+        1. Déterminez s'il y a une fissure.
+        2. Si une fissure est présente, déterminez si elle semble dangereuse ou non dangereuse.
+        3. Fournissez une réponse courte indiquant UNIQUEMENT l'un des éléments suivants : "Dangereux", "Pas dangereux" ou "Pas de Fissure".
+        4. Faites suivre la réponse courte d'une explication détaillée.`;
 
         const requestBody = {
             contents: [{
@@ -109,11 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = await response.json();
             const textResponse = data.candidates[0].content.parts[0].text;
 
-            // More robust parsing using regular expressions
-            const statusMatch = textResponse.match(/(Dangerous|Not Dangerous|No Fissure)/i);
-            const status = statusMatch ? statusMatch[0] : "Unknown"; // Default to "Unknown"
+            const statusMatch = textResponse.match(/(Dangereux|Pas dangereux|Pas de Fissure)/i);
+            const status = statusMatch ? statusMatch[0] : "Inconnu";
 
-            // Extract the explanation after the status, removing leading non-alphanumeric characters
             let explanation = textResponse.replace(status, '').trim();
             explanation = explanation.replace(/^[^a-zA-Z0-9]+/, '');
 

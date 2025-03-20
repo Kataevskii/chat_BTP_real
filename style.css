@@ -138,6 +138,15 @@ header p {
     transform: scale(0.95);
 }
 
+#analyzeButton.analyzing {
+    background: #777; /* A greyed-out background */
+    color: #aaa; /* A greyed-out text color */
+    cursor: not-allowed; /* Change the cursor to indicate it's disabled */
+    pointer-events: none; /* Make sure it's not clickable */
+    transform: none; /* Remove any hover effects */
+    box-shadow: none;
+}
+
 .result-text {
     font-size: 1.2rem;
     font-weight: bold;
