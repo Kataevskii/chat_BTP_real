@@ -3,7 +3,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #121212, #1a1a1a);
+    /* Background with warmer grey tones */
+    background: linear-gradient(135deg, #2c2c2c, #333333);
     color: #ddd;
     display: flex;
     justify-content: center;
@@ -13,20 +14,22 @@ body {
 }
 
 .container {
-    background: linear-gradient(135deg, #1e1e1e, #282828);
+    /* Warmer, slightly lighter grey container */
+    background: linear-gradient(135deg, #444444, #555555);
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Stronger shadow for depth */
     padding: 30px;
     width: 90%;
     max-width: 600px;
     text-align: center;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid #3498db;
+    /* Border in an orange accent color */
+    border: 2px solid #ff9933;
 }
 
 /* Logo Styling */
 .logo {
-    height: 80px; /* Increased height for a bigger logo */
+    height: 100px; /* Increased height for a bigger logo */
     margin-right: 15px;
     vertical-align: middle;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease;
@@ -51,7 +54,8 @@ header {
 }
 
 header h1 {
-    color: #3498db;
+    /* Orange color for the heading */
+    color: #ff9933;
     margin-bottom: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     margin-left: 10px;
@@ -71,7 +75,8 @@ header p {
 }
 
 .upload-button {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    /* Orange gradient for a construction feel */
+    background: linear-gradient(135deg, #ff9933, #cc6600);
     color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
@@ -83,7 +88,7 @@ header p {
 }
 
 .upload-button:hover {
-    background: linear-gradient(135deg, #2980b9, #1f68a1);
+    background: linear-gradient(135deg, #cc6600, #994d00);
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -105,7 +110,7 @@ header p {
 #uploadedImage {
     max-width: 100%;
     max-height: 300px;
-    border: 2px dashed #444;
+    border: 2px dashed #666; /* Darker dashed border */
     border-radius: 8px;
 }
 
@@ -117,7 +122,8 @@ header p {
 }
 
 #analyzeButton {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    /* Orange-ish green for analyze button */
+    background: linear-gradient(135deg, #ffbb33, #eea200);
     color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
@@ -129,7 +135,7 @@ header p {
 }
 
 #analyzeButton:hover {
-    background: linear-gradient(135deg, #27ae60, #1e8449);
+    background: linear-gradient(135deg, #eea200, #dd8800);
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -139,11 +145,11 @@ header p {
 }
 
 #analyzeButton.analyzing {
-    background: #777; /* A greyed-out background */
-    color: #aaa; /* A greyed-out text color */
-    cursor: not-allowed; /* Change the cursor to indicate it's disabled */
-    pointer-events: none; /* Make sure it's not clickable */
-    transform: none; /* Remove any hover effects */
+    background: #777;
+    color: #aaa;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
     box-shadow: none;
 }
 
@@ -156,21 +162,21 @@ header p {
 }
 
 .dangerous {
-    color: #ff6b6b;
-    border: 2px solid #ff6b6b;
-    background-color: rgba(255, 107, 107, 0.2);
+    color: #ff4500; /* A deeper orange-red for danger */
+    border: 2px solid #ff4500;
+    background-color: rgba(255, 69, 0, 0.2);
 }
 
 .no-fissure {
-    color: #888; /* Or any color you prefer for "No Fissure" */
-    border: 2px solid #888;
-    background-color: rgba(136, 136, 136, 0.2);
+    color: #ccc; /* A lighter grey for "No Fissure" */
+    border: 2px solid #ccc;
+    background-color: rgba(204, 204, 204, 0.2);
 }
 
 .not-dangerous {
-    color: #55d68c;
-    border: 2px solid #55d68c;
-    background-color: rgba(85, 214, 140, 0.2);
+    color: #6b8e23; /* Olive green for "Not Dangerous" */
+    border: 2px solid #6b8e23;
+    background-color: rgba(107, 142, 35, 0.2);
 }
 
 /* Footer */
@@ -182,14 +188,13 @@ footer {
 /* Spinner/Loader */
 .spinner {
     border: 4px solid rgba(255, 255, 255, 0.1);
-    border-left: 4px solid #3498db;
+    border-left: 4px solid #ff9933; /* Orange spinner */
     border-radius: 50%;
     width: 30px;
     height: 30px;
     animation: spin 1s linear infinite;
     margin: 20px auto;
 }
-
 
 @keyframes spin {
     0% {
