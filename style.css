@@ -15,7 +15,7 @@ body {
 
 .container {
     /* Warmer, slightly lighter grey container */
-    background: linear-gradient(135deg, #444444, #555555);
+    background: linear-gradient(135deg, #7e7e7e7d, #7e7e7e7d);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Stronger shadow for depth */
     padding: 30px;
@@ -24,7 +24,7 @@ body {
     text-align: center;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     /* Border in an orange accent color */
-    border: 2px solid #ff9933;
+    border: 2px solid #fda751;
 }
 
 /* Logo Styling */
@@ -55,7 +55,7 @@ header {
 
 header h1 {
     /* Orange color for the heading */
-    color: #ff9933;
+    color: #faa047;
     margin-bottom: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     margin-left: 10px;
@@ -76,7 +76,7 @@ header p {
 
 .upload-button {
     /* Orange gradient for a construction feel */
-    background: linear-gradient(135deg, #ff9933, #cc6600);
+    background: linear-gradient(135deg, #f0a22d, #f0a22d);
     color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
@@ -88,7 +88,7 @@ header p {
 }
 
 .upload-button:hover {
-    background: linear-gradient(135deg, #cc6600, #994d00);
+    background: linear-gradient(135deg, #c76504, #c76504);
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -123,8 +123,8 @@ header p {
 
 #analyzeButton {
     /* Orange-ish green for analyze button */
-    background: linear-gradient(135deg, #ffbb33, #eea200);
-    color: #fff;
+    background: linear-gradient(135deg, #f7c45d, #f7c45d);
+    color: #ffffff;
     padding: 12px 24px;
     border-radius: 8px;
     cursor: pointer;
@@ -135,7 +135,7 @@ header p {
 }
 
 #analyzeButton:hover {
-    background: linear-gradient(135deg, #eea200, #dd8800);
+    background: linear-gradient(135deg, #c76504, #c76504);
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -168,15 +168,15 @@ header p {
 }
 
 .no-fissure {
-    color: #ccc; /* A lighter grey for "No Fissure" */
-    border: 2px solid #ccc;
-    background-color: rgba(204, 204, 204, 0.2);
+    color: #cbcaca; /* A lighter grey for "No Fissure" */
+    border: 2px solid #959595;
+    background-color: rgba(212, 212, 212, 0.2);
 }
 
 .not-dangerous {
-    color: #6b8e23; /* Olive green for "Not Dangerous" */
-    border: 2px solid #6b8e23;
-    background-color: rgba(107, 142, 35, 0.2);
+    color: #6ab94b; /* Olive green for "Not Dangerous" */
+    border: 2px solid #77ad41;
+    background-color: rgba(148, 212, 99, 0.23);
 }
 
 /* Footer */
