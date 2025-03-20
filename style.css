@@ -1,0 +1,207 @@
+/* General Reset & Basic Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #121212, #1a1a1a);
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    background: linear-gradient(135deg, #1e1e1e, #282828);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #3498db;
+}
+
+/* Logo Styling */
+.logo {
+    height: 80px; /* Increased height for a bigger logo */
+    margin-right: 15px;
+    vertical-align: middle;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+header h1 {
+    color: #3498db;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+header p {
+    color: #bbb;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 1em;
+}
+
+/* Upload Section */
+.upload-section {
+    margin-bottom: 30px;
+}
+
+.upload-button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.upload-button:hover {
+    background: linear-gradient(135deg, #2980b9, #1f68a1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.upload-button:active {
+    transform: scale(0.95);
+}
+
+#imageUpload {
+    display: none;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#uploadedImage {
+    max-width: 100%;
+    max-height: 300px;
+    border: 2px dashed #444;
+    border-radius: 8px;
+}
+
+/* Result Section */
+.result-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#analyzeButton {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-size: 1rem;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#analyzeButton:hover {
+    background: linear-gradient(135deg, #27ae60, #1e8449);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#analyzeButton:active {
+    transform: scale(0.95);
+}
+
+.result-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.dangerous {
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.2);
+}
+
+.no-fissure {
+    color: #888; /* Or any color you prefer for "No Fissure" */
+    border: 2px solid #888;
+    background-color: rgba(136, 136, 136, 0.2);
+}
+
+.not-dangerous {
+    color: #55d68c;
+    border: 2px solid #55d68c;
+    background-color: rgba(85, 214, 140, 0.2);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    color: #bbb;
+}
+
+/* Spinner/Loader */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .upload-button,
+    #analyzeButton {
+        padding: 10px 20px;
+        border-radius: 6px;
+    }
+}
