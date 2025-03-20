@@ -85,11 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const model = 'gemini-2.0-flash-lite';
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
-        const prompt = `Analysez cette image.
-        1. Déterminez s'il y a une fissure.
-        2. Si une fissure est présente, déterminez si elle semble dangereuse ou non dangereuse.
-        3. Fournissez une réponse courte indiquant UNIQUEMENT l'un des éléments suivants : "Dangereux", "Pas dangereux" ou "Pas de Fissure".
-        4. Faites suivre la réponse courte d'une explication détaillée.`;
+        const prompt = `Analyze this image.
+        1. Determine if there is a crack.
+        2. If a crack is present, determine if it appears dangerous or not dangerous.
+        3. Provide a short answer IN FRENCH, indicating ONLY one of the following: "Dangereux", "Pas dangereux", or "Pas de Fissure".
+        4. Provide a DETAILED EXPLANATION IN FRENCH.
+        5. Provide ONLY the short answer from step 3 and the detailed explanation from step 4. Do not include any other text or formatting.`;
 
         const requestBody = {
             contents: [{
